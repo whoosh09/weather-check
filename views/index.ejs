@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/bootstrap-icons/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="/style.css">
+    <title>Weather Forecast</title>
+</head>
+
+<body>
+    <div class="container mt-3">
+        <!-- search bar! -->
+        <div class="search-section">
+            <% if (initialLoad) { %>
+                <h1 class="mb-4 mt-3">Weather Forecast</h1>
+                <p class="mb-4">Search for your city to see the current weather and forecast!</p>
+            <% } %>
+            
+            <form action="/" method="POST" class="search-form">
+                <div class="input-group">
+                    <input type="text" name="city" class="form-control" placeholder="Enter city name..." required>
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            </form>
+        </div>
+
+        <% if (typeof error !== 'undefined' && error) { %>
+            <!-- Error Message -->
+            <div class="alert alert-danger text-center">
+                <%= error %>
+            </div>
+
+        <% } else if (!initialLoad) { %>
+            <div class="city-name-bg">
+                <div class="location-info">
+                    <h1 class="city-name"><%= content.name %></h1>
+                    <p class="country-name"><%= content.country%></p>
+                </div>
+                <div class="weather-icon">
+                    <img src="http://openweathermap.org/img/wn/<%= current.weather[0].icon %>@2x.png" alt="Weather Icon" width="60">
+                </div>
+            </div>
+
+            <div class="weather-data-section">
+                <div class="weather-info-grid">
+                    <div class="weather-info-item">
+                        <p>Wind</p>
+                        <h2><i class="bi bi-wind"></i> <%= current.wind.speed %> m/s</h2>
+                    </div>
+                    <div class="weather-info-item">
+                        <p>Condition</p>
+                        <h2><%= current.weather[0].description %></h2>
+                    </div>
+                    <div class="weather-info-item">
+                        <p>Temperature</p>
+                        <h2><i class="bi bi-thermometer-half"></i> <%= Math.round(current.main.temp) %>&deg;C</h2>
+                    </div>
+                    <div class="weather-info-item">
+                        <p>Updated</p>
+                        <h2><i class="bi bi-clock"></i> <%= currentTime.split(',')[1] %></h2>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="additional-info">
+                <div class="additional-info-item">
+                    <p>Humidity</p>
+                    <p><%= current.main.humidity %>%</p>
+                </div>
+                <div class="additional-info-item">
+                    <p>Pressure</p>
+                    <p><%= current.main.pressure %> hPa</p>
+                </div>
+               
+                <div class="additional-info-item">
+                    <p>Visibility</p>
+                    <p><%= (current.visibility / 1000).toFixed(1) %> km</p>
+                </div>
+            </div>
+            
+
+            <div class="forecast-section">
+                <% weather.forEach(forecast => { %>
+                    <div class="forecast-item">
+                        <strong><%= forecast.formatted_time.split(',')[1] %></strong>
+                        <img src="http://openweathermap.org/img/wn/<%= forecast.weather[0].icon %>@2x.png" alt="Weather Icon" width="60">
+                        <div><%= Math.round(forecast.main.temp) %>&deg;C</div>
+                        <div><%= forecast.weather[0].description %></div>
+                    </div> 
+                <% }) %>
+            </div>
+        <% } %>
+        
+    </div>
+</body>
+</html>

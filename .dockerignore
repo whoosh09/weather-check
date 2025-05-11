@@ -1,0 +1,43 @@
+# Dependencies
+node_modules
+
+# Environment variables and secrets
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Build artifacts
+dist
+build
+
+# Logs
+*.log
+logs/
+npm-debug.log
+yarn-error.log
+
+# Git
+.git
+.gitignore
+
+
+tests/
+__tests__/
+*.test.js
+*.spec.js
+coverage/
+
+# IDE and editor configs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS and temporary files
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+
