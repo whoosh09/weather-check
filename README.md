@@ -1,8 +1,8 @@
-# Weather Check
+# Weather Check 🌦️
 
 This is a simple weather web application built with Node.js, Express, and Docker. It fetches real-time weather data using the OpenWeather API and displays it to users. The app is containerized for easy development.
 
-Or you can visit it on Render at the link in this repo’s description and test it yourself!
+You can visit it on Render at the link in this repo’s description and test it yourself!
 
 ## Features
 - Fetches current weather data for any city using the OpenWeather API.
@@ -18,7 +18,7 @@ Before you begin, ensure you have the following installed:
 
 ## Getting Started
 
-### 1. Clone the Repository
+### 1. Clone the Repository 📥
 Clone this repository to your local machine using HTTPS:
 ```bash
 git clone https://github.com/whoosh09/weather-check.git
@@ -30,16 +30,16 @@ cd weather-check
 git clone git@github.com:whoosh09/weather-check.git
 ```
 
-### 2. Set Up Environment Variables
+### 2. Set Up Environment Variables ⚙️
 Create a `.env` file in the project root and add your OpenWeather API key:
 ```bash
 OPENWEATHER_API_KEY=your_api_key_here
 ```
 
-### 3. Run with Docker
+### 3. Run with Docker 🐳
 The app is containerized using Docker for easy setup.
 
-#### Build and Run the Docker Container
+#### Build and Run the Docker Container 🟢
 1. Build the Docker image:
    ```bash
    docker build -t weather-app .
