@@ -66,9 +66,6 @@ If you want to run the app directly with Node.js:
    ```
 3. Visit `http://localhost:3000` in your browser.
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 - [OpenWeather API](https://openweathermap.org/) for weather data.
 - [Express.js](https://expressjs.com/) for the web framework.
